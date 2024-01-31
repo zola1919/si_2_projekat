@@ -1,0 +1,67 @@
+﻿@page
+@model eUcionica.Pages.PitanjePage.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Детаљи о питању</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Predmet) *@
+            Предмет
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Predmet.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Oblast) *@
+            Област
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Oblast.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Difficulty) *@
+            Тежина
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Difficulty)
+        </dd>
+        <dt class="col-sm-2">
+           @*  @Html.DisplayNameFor(model => model.Pitanje.Question) *@
+           Питање
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Question)
+        </dd>
+        <dt class="col-sm-2">
+            @if (Model.Pitanje.Image != null)
+            {
+               <Slika/>
+            }
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Pitanje.Image != null)
+            {
+                <img class="block" src="~/Images/@Model.Pitanje.Image" alt="" width="300" height="auto" />
+            }
+        </dd>
+        <dt class="col-sm-2">
+           @*  @Html.DisplayNameFor(model => model.Pitanje.Answer) *@
+           Одговор
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Answer)
+        </dd>
+        <hr />
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Pitanje?.ID">Измени</a> |
+    <a asp-page="./Pitanja">Назад на листу питања</a>
+</div>

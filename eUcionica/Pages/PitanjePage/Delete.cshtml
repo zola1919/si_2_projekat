@@ -1,0 +1,57 @@
+﻿@page
+@model eUcionica.Pages.PitanjePage.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Уклањање питања</h1>
+
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Predmet) *@
+            Питање
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Predmet.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Oblast) *@
+            Област
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Oblast.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Difficulty) *@
+            Тежина
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Difficulty)
+        </dd>
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Pitanje.Question) *@
+            Текст питања
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Question)
+        </dd>
+        <dt class="col-sm-2">
+           @* @Html.DisplayNameFor(model => model.Pitanje.Answer) *@
+           Одговор
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pitanje.Answer)
+        </dd>
+    </dl>
+    <h5>Да ли сте сигурни да желите уклонити питање?</h5>
+    <form method="post">
+        <input type="hidden" asp-for="Pitanje.ID" />
+        <input type="submit" value="Уклони" class="btn btn-danger" /> |
+        <a asp-page="./Pitanja">Назад на листу питања</a>
+    </form>
+</div>

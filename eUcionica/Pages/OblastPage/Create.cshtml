@@ -1,0 +1,39 @@
+﻿@page
+@model eUcionica.Pages.OblastPage.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Додајте нову (под)област</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Oblast.PredmetID" class="control-label">Назив предмета</label>
+                <select asp-for="Oblast.PredmetID" class ="form-control" asp-items="ViewBag.PredmetID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oblast.Name" class="control-label">Назив области</label>
+                <input asp-for="Oblast.Name" class="form-control" />
+                <span asp-validation-for="Oblast.Name" class="text-danger"></span>
+                <br>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Додај" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Oblasti">Назад на области</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

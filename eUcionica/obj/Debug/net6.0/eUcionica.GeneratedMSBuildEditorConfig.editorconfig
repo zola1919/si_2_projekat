@@ -1,0 +1,99 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = eUcionica
+build_property.RootNamespace = eUcionica
+build_property.ProjectDir = C:\Users\Zola\Desktop\eUcionicaZola\eUcionica\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Zola\Desktop\eUcionicaZola\eUcionica
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/OblastPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2JsYXN0UGFnZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/OblastPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2JsYXN0UGFnZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/OblastPage/Oblasti.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2JsYXN0UGFnZVxPYmxhc3RpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PitanjePage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGl0YW5qZVBhZ2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PitanjePage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGl0YW5qZVBhZ2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PitanjePage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGl0YW5qZVBhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PitanjePage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGl0YW5qZVBhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PitanjePage/Pitanja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGl0YW5qZVBhZ2VcUGl0YW5qYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PredmetPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlZG1ldFBhZ2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PredmetPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlZG1ldFBhZ2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/PredmetPage/Predmeti.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlZG1ldFBhZ2VcUHJlZG1ldGkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/TestPage/GenerisanTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdFBhZ2VcR2VuZXJpc2FuVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/TestPage/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdFBhZ2VcVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Zola/Desktop/eUcionicaZola/eUcionica/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-v6zfz9zx1l

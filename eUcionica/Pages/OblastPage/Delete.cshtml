@@ -1,0 +1,36 @@
+﻿@page
+@model eUcionica.Pages.OblastPage.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Уклањање области</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Oblast.Predmet) *@
+            Предмет
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oblast.Predmet.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Oblast.Name) *@
+            Област
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Oblast.Name)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Oblast.ID" />
+        <h5>Да ли сте сигурни да желите уклонити ову област?</h5>
+        <input type="submit" value="Уклони" class="btn btn-danger" /> |
+        <a asp-page="./Oblasti">Назад на области</a>
+    </form>
+</div>

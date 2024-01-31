@@ -1,0 +1,81 @@
+﻿@page
+@model eUcionica.Pages.PitanjePage.PitanjeModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Питања</h1>
+
+<p>
+    <a asp-page="Create">Састави питање</a>
+</p>
+<form method="post">
+    <input type="text" asp-for="SearchText">
+    <input type="submit" value="Pretraga">
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Pitanje[0].Predmet)*@
+                <a class="btn-outline-dark" asp-page-handler="SortByPredmet">Предмет</a>
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.Pitanje[0].Oblast) *@
+                <a class="btn-outline-dark" asp-page-handler="SortByOblast">Област</a>
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Pitanje[0].Difficulty) *@
+                <a class="btn-outline-dark" asp-page-handler="SortByDiff">Тежина</a>
+            </th>
+            <th>
+                Питање
+            </th>
+            <!--
+            <th>
+                Slika
+            </th>
+            <th>
+                Odgovor
+            </th>
+            -->
+            <th>Управљање</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pitanje) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Predmet.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oblast.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Difficulty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <!--
+            <td>
+                    @if (item.Image != null)
+                    {
+                        <img class="block" src="~/Images/@item.Image" alt="" width="50" height="auto" />
+                    }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            -->
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Измени</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Детаљи</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Уклони</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

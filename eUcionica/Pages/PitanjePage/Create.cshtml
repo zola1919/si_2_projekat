@@ -1,0 +1,90 @@
+﻿@page
+@model eUcionica.Pages.PitanjePage.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Креирање питања</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pitanje.PredmetID" class="control-label">Предмет</label>
+                <select asp-for="Pitanje.PredmetID" class="form-control" onchange="updateOblastDropdown()">
+                    @foreach (var item in (IEnumerable<SelectListItem>)ViewData["PredmetID"])
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Pitanje.OblastID" class="control-label">Област</label>
+                <select asp-for="Pitanje.OblastID" class="form-control" id="Pitanje_OblastID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pitanje.Difficulty" class="control-label">Тежина</label>
+                <select asp-for="Pitanje.Difficulty" class="form-control" id="Pitanje_Difficulty">
+                    @foreach (var item in (IEnumerable<SelectListItem>)ViewData["Difficulty"])
+                    {
+                        <option value="@item.Text">@item.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="Pitanje.Difficulty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pitanje.Question" class="control-label">Питање</label>
+                <input asp-for="Pitanje.Question" class="form-control" />
+                <span asp-validation-for="Pitanje.Question" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Слика</label>
+                <input type="file" asp-for="Upload" class="form-control" method="post" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Pitanje.Answer" class="control-label">Одговор</label>
+                <input asp-for="Pitanje.Answer" class="form-control" />
+                <span asp-validation-for="Pitanje.Answer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Креирај" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Pitanja">Назад на листу питања</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function updateOblastDropdown() {
+            var selectedPredmetID = document.getElementById("Pitanje_PredmetID").value;
+
+            fetch(`/PitanjePage/Create?handler=IzaberiOblasti&predmetID=${selectedPredmetID}`)
+                .then(response => response.json())
+                .then(data => {
+                    
+                    var oblastDropdown = document.getElementById("Pitanje_OblastID");
+                    oblastDropdown.innerHTML = "";
+
+                    data.forEach(oblast => {
+                        var option = document.createElement("option");
+                        option.value = oblast.id;
+                        option.text = oblast.name;
+                        oblastDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        }
+    </script>
+}

@@ -1,0 +1,70 @@
+﻿@page
+@model eUcionica.Pages.TestPage.TestModel
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <form method="post" enctype="multipart/form-data" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div id="div1">
+                <div>
+                    <label id="predmet_lab" for="PredmetID">Изаберите предмет:</label>
+                    <select id="PredmetID" asp-items="Model.PredmetOptions" class="form-control" name="SelectedPredmetID"></select>
+                </div>
+
+            <div>
+                <label id="oblast_lab" for="OblastID">Изабери област:</label>
+                <select id="OblastID" asp-items="Model.OblastOptions" class="form-control" name="SelectedOblastID"></select>
+            </div>
+            <br>
+            <div>
+                    <button type="submit" class="btn btn-primary">Генеришите тест</button>
+            </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        var correctAnswersArray = Json.Serialize(Model.SelectedQuestions.Select(q => q.Answer).ToArray());
+    }
+
+    <script>
+        //-------------------------------DROPDOWN-------------------------------------
+       
+        document.getElementById("PredmetID").addEventListener("change", function () {
+            var selectedPredmetID = this.value;
+
+           
+            fetch(`/TestPage/Test?handler=Oblasts&predmetID=${selectedPredmetID}`)
+                .then(response => response.json())
+                .then(data => {
+                   
+                    var oblastDropdown = document.getElementById("OblastID");
+                    oblastDropdown.innerHTML = ""; 
+
+                    
+                    var allOption = document.createElement("option");
+                    allOption.value = ""; 
+                    allOption.text = "Sve oblasti";
+                    oblastDropdown.appendChild(allOption);
+
+                    
+                    data.forEach(oblast => {
+                        var option = document.createElement("option");
+                        option.value = oblast.id;
+                        option.text = oblast.name;
+                        oblastDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
+        //-------------------------------DROPDOWN-------------------------------------
+    </script>
+}

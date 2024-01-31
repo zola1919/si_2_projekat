@@ -1,0 +1,126 @@
+﻿@page "{SelectedQuestions?}"
+@model eUcionica.Pages.TestPage.GenerisanTestModel
+@{
+    ViewData["Title"] = "GenerisanTest";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div id="div2">
+                @if (Model.SelectedQuestions != null)
+                {
+                    <div>
+                        <h2>Тест</h2>
+                        <h5>Сви одговори су записани малим(осим властитих именица) словима.</h5>
+                        <h5>Коришћено је ћирилично писмо, изузев питања из енглеског језика, или питања која укључују хемијске формуле.</h5>
+                        <ul>
+                            @for (var i = 0; i < Model.SelectedQuestions.Count; i++)
+                            {
+                                <div>
+                                    <label>@(i + 1). @Model.SelectedQuestions[i].Question</label>
+                                    <dd class="col-sm-10">
+                                        @if (Model.SelectedQuestions[i].Image != null)
+                                        {
+                                            <img class="block" src="~/Images/@Model.SelectedQuestions[i].Image" alt="" width="auto" height="100" />
+                                        }
+                                    </dd>
+                                    <input type="text" id="answer_@(i)" name="answers" class="form-control" />
+                                    @{
+                                        var correctAnswer = Model.SelectedQuestions[i].Answer;
+                                    }
+                                    <input type="hidden" name="CorrectAnswers[@i]" value='@correctAnswer' />
+                                </div>
+                            }
+                        </ul>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="endTest()">Предајте одговоре</button>
+                    <br>
+                    <div id="scoreDiv" style="display:none;">
+                        <h3>Остварен резултат:</h3>
+                         <p id="scoreText"></p>
+                        <button type="button" id="showAnswersBtn" class="btn btn-secondary" style="display: none;" onclick="showCorrectAnswers()">Прикажи исправне одговоре</button>
+
+                    </div>
+                    <br>
+                    <div>
+                        <a asp-page="Test">Идите на нов тест</a>
+                    </div>
+                    <div />
+                }
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        var correctAnswersArray = Json.Serialize(Model.SelectedQuestions.Select(q => q.Answer).ToArray());
+    }
+
+
+    <script>
+        var correctAnswers = JSON.parse('@Html.Raw(correctAnswersArray)');
+
+        async function endTest() {
+            var tacni = 0;
+            var nije = 0;
+
+            for (var i = 0; i < @Model.SelectedQuestions.Count; i++) {
+                var answer = document.getElementById(`answer_${i}`).value;
+
+                if (answer === '') {
+                    nije = 1;
+                }
+
+                var correctAnswer = correctAnswers[i];
+
+                if (answer.toLowerCase() == correctAnswer.toLowerCase()) {
+                    tacni++;
+                }
+            }
+
+            if (nije != 1) {
+                var totalQuestions = @Model.SelectedQuestions.Count;
+                var percentage = (tacni / totalQuestions) * 100;
+
+                var scoreText = `Одговорили сте тачно на ${tacni} од ${totalQuestions} питања.`;
+
+                if (percentage > 80) {
+                    scoreText += " \u{1F603} Изузетан резултат!";
+                } else if (percentage > 60) {
+                    scoreText += " \u{1F604} Врло добар резултат.";
+                } else if (percentage > 40) {
+                    scoreText += " \u{1F60A} Добар резултат.";
+                } else if (percentage > 20) {
+                    scoreText += " \u{1F610} Просечан резултат.";
+                } else {
+                    scoreText += " \u{1F615} Не би било лоше да мало више вежбате.";
+                }
+                if (percentage < 100) {
+                    document.getElementById('showAnswersBtn').style.display = 'inline-block';
+                }
+                document.getElementById('scoreText').innerHTML = scoreText;
+                document.getElementById('scoreDiv').style.display = 'block';
+
+                
+            } else {
+                alert('Морате одговорити на сва питања како бисте добили оцену!');
+            }
+        }
+
+        function showCorrectAnswers() {
+            for (var i = 0; i < @Model.SelectedQuestions.Count; i++) {
+                var correctAnswer = correctAnswers[i];
+                document.getElementById(`answer_${i}`).value = correctAnswer;
+            }
+            document.getElementById('showAnswersBtn').style.display = 'none';
+        }
+    </script>
+}
+
+
+
